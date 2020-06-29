@@ -22,25 +22,16 @@ print(search(10, list))
 def binary_search(number, list):
     found_at = None
     low_number = 0
-    high_number = len(list) - 1
-    middle_number = (low_number + high_number) // 2
-
-    if list[low_number] == number:
-        found_at = low_number
-        return found_at
-    if list[high_number] == number:
-        found_at = high_number
-        return found_at
+    high_number = len(list)
     while low_number+1 != high_number:
+         middle_number = (low_number + high_number) // 2
         if list[middle_number] == number:
             found_at = middle_number
             return found_at
         elif list[middle_number] > number:
-            high_number = middle_number
-            middle_number = (high_number + low_number) // 2
+            high_number = middle_number      
         else:
-            low_number = middle_number
-            middle_number = (high_number + low_number) // 2
+            low_number = middle_number            
     return found_at
 
 print(binary_search(1, list))
